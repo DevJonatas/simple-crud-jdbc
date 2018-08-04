@@ -1,4 +1,4 @@
-package jdbc;
+package br.com.crud.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ public class ConnectionFactory {
 	public Connection getConnection(){
 		try{
 			return DriverManager.getConnection(
-					"jdvc:mysql:// xx /xx","xx","xx");
+					"jdbc:mysql://xx/xx","xx","xx");
 		}catch (SQLException e){
 			throw new RuntimeException(e);
 		}

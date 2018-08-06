@@ -3,11 +3,19 @@ package br.com.crud.modelo;
 import java.util.Calendar;
 
 public class Contato {
-
+	private Long id;
 	private String nome;
 	private String email;
 	private String mensagem;
 	private Calendar dataNascimento;
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(int i) {
+		this.id = (long) i;
+	}
 	
 	public String getNome() {
 		return nome;

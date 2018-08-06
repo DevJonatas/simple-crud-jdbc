@@ -11,16 +11,19 @@ public class TestesCases {
 		
 		Contato contato = new Contato();
 		
-		boolean result = insertContato(createObjeto(contato));
+		//boolean result = insertContato(createObjeto(contato));
+		
+		boolean result = alteraContato(createObjeto(contato)); 
 		
 		System.out.println(result);
 		
 	}
 	
 	public static Contato createObjeto(Contato contato){
-		contato.setNome("Gabriel");
-		contato.setEmail("gabriel.s@email.com");
-		contato.setMensagem("Gostaria que me retornassem o contato");
+		contato.setId(2);
+		contato.setNome("Sandro");
+		contato.setEmail("Sandro.s@email.com");
+		contato.setMensagem("Teste alteração 2");
 		
 		contato.setDataNascimento(Calendar.getInstance());
 		
@@ -33,6 +36,16 @@ public class TestesCases {
 		}else{
 			ContatoDAO dao = new ContatoDAO();
 			dao.insereContato(contatos);
+			return true;
+		}
+	}
+	
+	public static boolean alteraContato(Contato contato){
+		if(contato.getId().equals(null)){
+			return false;
+		}else{
+			ContatoDAO dao = new ContatoDAO();
+			dao.alteraContato(contato);
 			return true;
 		}
 	}

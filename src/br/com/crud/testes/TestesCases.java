@@ -10,17 +10,30 @@ public class TestesCases {
 	public static void main(String[] args) {
 		
 		Contato contato = new Contato();
-		contato.setNome("Gabriel Santos");
+		
+		boolean result = insertContato(createObjeto(contato));
+		
+		System.out.println(result);
+		
+	}
+	
+	public static Contato createObjeto(Contato contato){
+		contato.setNome("Gabriel");
 		contato.setEmail("gabriel.s@email.com");
 		contato.setMensagem("Gostaria que me retornassem o contato");
 		
 		contato.setDataNascimento(Calendar.getInstance());
 		
-		ContatoDAO dao = new ContatoDAO();
-		dao.insereContato(contato);
-		
-		System.out.println("Insert OK");
-		
+		return contato;
 	}
 	
+	public static boolean insertContato(Contato contatos){
+		if(contatos.getNome().equals("")){
+			return false;
+		}else{
+			ContatoDAO dao = new ContatoDAO();
+			dao.insereContato(contatos);
+			return true;
+		}
+	}
 }

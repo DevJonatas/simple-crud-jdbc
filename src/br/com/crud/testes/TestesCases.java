@@ -10,22 +10,15 @@ public class TestesCases {
 	public static void main(String[] args) {
 		
 		Contato contato = new Contato();
-		
-		//boolean result = insertContato(createObjeto(contato));
-		
-		boolean result = alteraContato(createObjeto(contato)); 
+				
+		boolean result = deleteContato(generatersObject(contato));
 		
 		System.out.println(result);
 		
 	}
 	
-	public static Contato createObjeto(Contato contato){
-		contato.setId(2);
-		contato.setNome("Sandro");
-		contato.setEmail("Sandro.s@email.com");
-		contato.setMensagem("Teste alteração 2");
-		
-		contato.setDataNascimento(Calendar.getInstance());
+	public static Contato generatersObject(Contato contato){
+		contato.setId(5);
 		
 		return contato;
 	}
@@ -46,6 +39,16 @@ public class TestesCases {
 		}else{
 			ContatoDAO dao = new ContatoDAO();
 			dao.alteraContato(contato);
+			return true;
+		}
+	}
+	
+	public static boolean deleteContato(Contato contato){
+		if(contato.getId().equals(null)){
+			return false;
+		}else{
+			ContatoDAO dao = new ContatoDAO();
+			dao.deleteContato(contato);
 			return true;
 		}
 	}

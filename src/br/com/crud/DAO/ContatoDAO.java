@@ -63,13 +63,13 @@ public class ContatoDAO {
 
 	}
 	
-	public void deleteContato(Contato contato){
+	public void deleteContato(int id){
 		String sql = "delete from contatos where id=?";
 		
 		try{
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			
-			stmt.setLong(1, contato.getId());
+			stmt.setLong(1, id);
 			
 			stmt.execute();
 			stmt.close();

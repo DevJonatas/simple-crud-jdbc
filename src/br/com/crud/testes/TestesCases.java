@@ -11,14 +11,14 @@ public class TestesCases {
 		
 		Contato contato = new Contato();
 				
-		boolean result = deleteContato(generatersObject(contato));
+		boolean result = deleteContato(3);
 		
 		System.out.println(result);
 		
 	}
 	
 	public static Contato generatersObject(Contato contato){
-		contato.setId(5);
+		contato.setId(1);
 		
 		return contato;
 	}
@@ -43,12 +43,12 @@ public class TestesCases {
 		}
 	}
 	
-	public static boolean deleteContato(Contato contato){
-		if(contato.getId().equals(null)){
+	public static boolean deleteContato(int id){
+		if(id == 0){
 			return false;
 		}else{
 			ContatoDAO dao = new ContatoDAO();
-			dao.deleteContato(contato);
+			dao.deleteContato(id);
 			return true;
 		}
 	}

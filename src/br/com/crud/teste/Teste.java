@@ -1,11 +1,11 @@
-package br.com.crud.testes;
+package br.com.crud.teste;
 
 import java.util.Calendar;
 
 import br.com.crud.DAO.ContatoDAO;
 import br.com.crud.modelo.Contato;
 
-public class TestesCases {
+public class Teste {
 
 	public static void main(String[] args) {
 		
